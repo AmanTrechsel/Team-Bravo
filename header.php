@@ -11,7 +11,7 @@
    <div id="container">
         <div id="item1"></div>
         <div class="logo">
-            <img src="images/logowebsite.png" alt="logoweb">
+            <a href="index.php"><img src="images/logowebsite.png" alt="logoweb"></a>
         </div>
         <nav>
             <ul>
