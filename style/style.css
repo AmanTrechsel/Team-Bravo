@@ -115,7 +115,6 @@ h2{
     margin-left: 28vw;
 }
 
-
 /* Contact Pagina */
 #contactpage{
     height:45vw;
@@ -180,3 +179,31 @@ label{
     margin-left:490px;
 }
 
+=======
+/* news page */
+
+#mainNews{
+    grid-column: 2/6;
+    background-color: #FFFF;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+    height: 924px;
+}
+
+.newsItem{
+    height: 380px;
+    width: 355px;
+    background-color: #FFF;
+    margin: 20px;
+    max-width: 500px;
+    text-align: center;
+}
+
+h3{
+    color: green;
+    text-align: center;
+    font-size: 2em;
+    font-weight: lighter;
+}
