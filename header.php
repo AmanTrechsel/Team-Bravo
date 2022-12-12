@@ -27,3 +27,4 @@
                 <Li><a href="contact.php" alt="contact">Contact</a></Li>
             </ul>
         </nav>
+        <div id="item2"></div>

@@ -1,6 +1,5 @@
 <?php include('header.php'); ?>
 
-<div id="item2"></div>
 <div id="herobanner">
     <img id="herobannerimg" src="./images/herobanner.png" alt="herobannerhome">
 </div>
