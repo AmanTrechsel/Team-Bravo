@@ -2,16 +2,39 @@
 
 <div id="item2"></div>
 <div id="herobanner">
-    <img id="herobannerimg" src="./images/herobanner.png" alt="herobannerhome">
+    <img id="herobannerimg" src="./images/herobannerNews.png" alt="herobannerhome">
 </div>
-<main>
-    <h1>De morgenster laat je stralen!</h1>
-    <p>Welkom bij de christelijke basisschool De Morgenster. De school staat in de Zwolse wijk Westenholte. De Morgenster laat je stralen; door naar ieder individueel kind te kijken, kunnen we het beste aansluiten op de behoeften van die leerling en er is ruimte voor zijn of haar talenten. Dit doen we door onderzoekend en ontdekkend leren. We dagen de leerlingen uit om vanuit een natuurlijke nieuwsgierigheid de wereld te ontdekken. Dit doen we door op het onderwijs thematisch aan te bieden waarbij meerdere vakken geïntegreergd worden. We leren onze leerlingen hierdoor samen te werken, verantwoordelijkheid te nemen, probleemoplossend te denken en creatief te zijn. </p>
-    <p>We kijken op welke manier een leerling, in deze groep, bij deze leerkracht, met deze ouders, zich het beste kan ontwikkelen. Iedere leerling is hierbij eigenaar van zijn of haar eigen onderwijsproces.</p>
-    <h1>‘Op De morgenster is voor ieder kind een plek en kan ieder kind stralen.’</h1>
-    <p>De waarden van de Morgenster zijn: samen, open en waardevol. Leerlingen, ouders en team werken samen aan waardevol onderwijs door zelf open te zijn en een open houding te hebben naar de ander. Dit zijn waarden die niet alleen bij de school passen, maar ook bij de wijk. Westenholte is een wijk waarin de saamhorigheid van groot belang is.</p>
-    <h1>‘Wij zijn in staat een veilig klimaat te scheppen waar kinderen opbloeien, zodat ze echt kunnen leren.’</h1>
-    <p>Op onze school zitten ongeveer 150 leerlingen, hierdoor staat elk kind centraal. Waardoor het leerproces extra persoonlijk wordt gerealiseerd. Het plezier van de leerlingen is een stralend gezicht voor onze school. Wij als school denken ook aan de duurzaamheid, in de school wordt er geen onnodig papier gebruikt en zijn al onze potloden zijn gemaakt van duurzaam hout. Wij vinden het belangrijk om de leerlingen een beeld te geven hoe belangrijk duurzaamheid is. Door dit jong mee te geven, wordt het later vanzelfsprekend.</p>
-</main>
+<div id="mainNews">
+    <div class="newsItem">
+        <img class="imgNews" src="./images/news1.png" alt="news1">
+        <h3>Schoolreisje</h3>
+        <p>Begin van het nieuwe schooljaar gaan we altijd met de groepen op schoolreisje</p>
+    </div>
+    <div class="newsItem">
+        <img class="imgNews" src="./images/news2.png" alt="news2">
+        <h3>Opening schoolplein</h3>
+        <p>Wat hebben we woensdag 26 oktober een feestelijke opening van ons plein gehad!</p>
+    </div>
+    <div class="newsItem">
+        <img class="imgNews" src="./images/news3.png" alt="news3">
+        <h3>Drones besturen</h3>
+        <p>groep 8 krijgt les over het besturen van drones door beroepscollege Talenstad.</p>
+    </div>
+    <div class="newsItem">
+        <img class="imgNews" src="./images/news4.png" alt="news4">
+        <h3>Dansen in school</h3>
+        <p>Op de Morgenster verzorgt MEC muziek een deel van de muzieklessen.</p>
+    </div>
+    <div class="newsItem">
+        <img class="imgNews" src="./images/news5.png" alt="news5">
+        <h3>We staan sterk</h3>
+        <p>Ook wij hebben woensdag 16 maart om 11.55 uur het lied ‘Wij staan hier sterk’ gezongen.</p>
+    </div>
+    <div class="newsItem">
+        <img class="imgNews" src="./images/news6.png" alt="news6">
+        <h3>Nieuwe schoolplein</h3>
+        <p>Onze beide schoolpleinen worden dit schooljaar vernieuwd.</p>
+    </div>
+</div>
 
 <?php include('footer.php'); ?>
