@@ -53,3 +53,55 @@ main {
     margin-bottom: 100px;
     grid-column: 2/6;
 }
+
+/*Grades Page*/
+
+#mainGrades {
+    background: #D8F4F5;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    grid-column: 2/6;
+    padding-bottom: 100px;
+}
+
+#gradesTitle > a {
+    text-decoration: none;
+	color: black;
+}
+
+#gradesContent {
+    display: flex;
+    justify-content: center;
+}
+
+#gradesTitle {
+    margin: 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#leerlingButton {
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    width: 150px;
+    height: 40px;  
+    align-items: center;
+}
+
+#gradesContent > table {
+    border-spacing: 0 5px;
+    margin-top: 50px;
+}
+
+.subjectTable {
+    display: flex;
+    width: 350px;
+    background-color: white;
+}
+
+.semesterTable {
+    width: 120px;
+    height: 50px;
+    background-color: white;
+}
