@@ -2,7 +2,7 @@
 
 <div id="mainGrades">
     <div id="gradesTitle">
-        <a href="pupilGradeList.php"><p id="leerlingButton">Leerlingen</p></a>
+        <a href="scholarGradeList.php"><p id="leerlingButton">Leerlingen</p></a>
     </div>
     <div id="gradesContent">
         <table>
