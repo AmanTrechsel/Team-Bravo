@@ -2,7 +2,7 @@
 //This is the database connection file, if you need to connect to the database with your current file, use the following:
 //require(DBconnection.php)
 try {
-    $g_DBhandeler = new PDO("mysql:host=mysql;dbname=huiswerkweek4;charset=utf8", "USERNAME", "QWERTY");
+    $g_DBhandeler = new PDO("mysql:host=mysql;dbname=morgister;charset=utf8", "root", "qwerty");
 }
 catch(Exception $ex){
     echo "<h1>PDO Error</h1>";
