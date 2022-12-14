@@ -94,16 +94,17 @@ main {
 
 #date{
     position: relative;
-    left: 1200px;
+    left: 1140px;
+    bottom: 56px;
     background-color: white;
     width: 85px;
-    height: 30x;
+    padding-left: 5px;
 }
 
 #headAbsence{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .AbsenceWhite{
@@ -111,4 +112,49 @@ main {
     height: 50px;
     width: 200px;
     text-align: center;
+}
+
+.pAbsence{
+    font-size: larger;
+    margin-left: 50px;
+}
+
+.scholarWhite{
+    background-color: white;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#whiteLine{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7px;
+}
+
+.radio{
+    height: 30px;
+    width: 30px;
+    accent-color: #477274;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.textBox{
+    height: 25px;
+    width: 180px;
+    margin-right: 5px;
+    margin-top: 10px;
+    background-color: #e9e3e3;
+    border: none;
+    padding: 5px;
+}
+
+#submit{
+    background-color: white;
+    height: 50px;
+    border: none;
+    font-size: larger;
 }
