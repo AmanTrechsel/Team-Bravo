@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php require('../DBconnection.php'); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,8 +22,11 @@
         case 'Agenda':
             $current = 4;   
             break;
-        case 'Afwezig':
+        case 'Events':
             $current = 5;   
+            break;
+        case 'Afwezig':
+            $current = 6;   
             break;
         default:
             $current = 1; 
@@ -54,6 +58,7 @@
             <li> <a href="klassen.php">Klassen</a></li>
             <li> <a href="cijfers.php">Cijfers</a></li>
             <li><a href="agenda.php">Agenda</a></li>
+            <li><a href="events.php">Events</a></li>
             <li><a href="afwezig.php">Afwezig</a></li>
         </ul>
     </div>
