@@ -1,4 +1,6 @@
-<?php include('header.php');
+<?php include_once('header.php');?>
+<div id="item2"></div>
+<?php
     try {
         $connection = new PDO("mysql:host=mysql;dbname=Morgister;charset=utf8", "root", "qwerty");
     } catch(Exception $exception) {
@@ -6,19 +8,24 @@
         exit;
     }
     //Check if a form has been posted to the script
+    //Roles:
+    //0 = Parent
+    //1 = Teacher
+    //2 = Administration
     if(isset($_POST['submit'])){
-        $statement = $connection->prepare("SELECT `password` FROM `Accounts` WHERE `username` = :username;");
+        $statement = $connection->prepare("SELECT `password`, `role` FROM `Accounts` WHERE `username` = :username;");
         $statement->bindParam("username", $_POST['username'], PDO::PARAM_STR);
         $statement->execute();
+        $statement->bindColumn("role", $role); 
         if(password_verify($_POST['password'], ($statement->fetch())['password']))
         {
-            $_SESSION['logged_in'] = true;
-            echo "<p>you are logged in</p>";
+            $_SESSION['logged_in'] = $role;
+            echo "<p>You are logged in</p>";
+            header('contact.php');
         }
         else{
             //If incorrect -> Give feedback and include loginForm
             echo "<p style='color: red;'>wrong username and/or password</p>";
-
             echo password_hash($_POST['password'], PASSWORD_BCRYPT);
         }
     }
@@ -39,6 +46,5 @@
         </div>
     </form>
 </div>
-
 
 <?php include('footer.php'); ?>
