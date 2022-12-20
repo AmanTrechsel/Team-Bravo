@@ -12,10 +12,12 @@ if(isset($_POST['submit'])){
         $getPass->bindParam("username", $_POST['username'], PDO::PARAM_STR);
         $getPass->execute();
         $getPass->bindColumn("password", $pass); 
+        $getPass->bindColumn("account_id", $userID); 
         $getPass->bindColumn("role", $role); 
         while($result = $getPass->fetch()){ 
             if(password_verify($_POST['password'], $pass)){
-                $_SESSION['logged_in'] = $role;
+                $_SESSION['role'] = $role;
+                $_SESSION['user'] = $userID;
                 header('Location: morgister/index.php?login=true');
             } else{
                 //If incorrect -> Give feedback and include loginForm

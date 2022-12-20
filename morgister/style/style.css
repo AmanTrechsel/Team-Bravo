@@ -267,3 +267,13 @@ main {
     right: 20px;
     top: 20px;
 }
+
+/* Profile page */
+.profileInfo {
+    background: white;
+    margin-bottom:5px;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}

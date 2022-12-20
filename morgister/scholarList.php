@@ -7,12 +7,7 @@
     <div class="scholarList">    
         <?php
                   
-        try {
-        $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister", "root", "qwerty");
-        } catch(PDOException $e) {
-                echo "Error: " . $e->getMessage();
-        }   
-        $stmt = $g_dbHandler->prepare("SELECT * FROM Scholar");
+        $stmt = $g_DBhandeler->prepare("SELECT * FROM Scholar");
         $stmt->execute();
            
         if($stmt->rowCount() > 0):
@@ -33,7 +28,7 @@
         endforeach;
 
         endif;
-        $g_dbHandler = null;
+        $g_DBhandeler = null;
            
         ?>
     </div>
