@@ -136,7 +136,7 @@ main {
 
 .gradeformContent {
     justify-content: center;
-   display: flex;
+    display: flex;
 }
 
 .scholarList {
@@ -154,6 +154,20 @@ main {
 .scholarBox a {
     text-decoration: none;
 	color: black;
+}
+
+.updateMsg {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 50px;
+}
+
+.updateContent {
+    display: flex;
+    justify-content: center;
 }
 
 /* Menu */
