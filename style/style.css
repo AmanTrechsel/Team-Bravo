@@ -115,6 +115,55 @@ h2{
     margin-left: 28vw;
 }
 
+/* Login Page */
+
+#mainLogin{
+    margin-top: 100px;
+    grid-column: 2/6;
+    background-color: #FFFF;
+    justify-content: center;
+}
+
+#loginTitle{
+    font-size: 25px;
+    margin-bottom: 120px;
+    margin-top: 40px;
+    color: green;
+}
+
+.login{
+    display: flex;
+    justify-content: space-between;
+    width: 54%;  
+    margin-left: 260px;
+    margin-bottom: 30px;
+}
+
+.loginBox{
+    width: 200px;
+    border: 0px;
+    background-color: lightgrey;
+    height: 30px;
+}
+
+#loginButtonDiv{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 140px;
+    margin-bottom: 130px;
+}
+
+#loginButton{
+    width: 150px;
+    border: 0px;
+    background-color: lightgray;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom:25px;
+    height: 40px;
+}
+
 /* Contact Pagina */
 #contactpage{
     height:55vw;
@@ -179,6 +228,7 @@ label{
     font-size: 20px;
     margin-left:490px;
 }
+
 /* news page */
 
 #mainNews{
