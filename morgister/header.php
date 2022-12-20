@@ -1,7 +1,14 @@
+<?php session_start();
+if(isset($_SESSION['logged_in'])) {
+    echo 'U hebt toegang!';
+} else {
+    header('Location: ../login.php?login=false');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require('../DBconnection.php'); ?>
+    <?php require_once('../DBconnection.php'); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,9 +44,7 @@
         margin-left: 10px;
         border-radius: 30px 0 0 30px;
     }
-
 </style>
-
 <div id="container">
     <header>
         <div id="logo">
@@ -49,9 +54,7 @@
             <li>Profiel</li>
             <li>Uitloggen</li>
         </ul>
-
     </header>
-
     <div class="navleft">
         <ul id="navigation">
             <li><a href="index.php">Home</a></li>

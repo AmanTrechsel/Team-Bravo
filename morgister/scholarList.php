@@ -1,4 +1,4 @@
-<?php require('header.php'); ?>
+<?php include_once('header.php'); ?>
 
 <div id="mainGrades">
     <div id="gradesContent">

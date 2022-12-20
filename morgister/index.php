@@ -1,5 +1,5 @@
-<?php require('header.php'); ?>
-<?php require('DBconnection.php');?>
+<?php include_once('header.php'); ?>
+
 <main>
 
 

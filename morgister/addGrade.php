@@ -1,4 +1,4 @@
-<?php require('header.php'); 
+<?php include_once('header.php'); 
  
  if(isset($_GET['scholar_id'])&& ($_GET['subject_id'])){
     $scholar = $_GET['scholar_id'];

@@ -19,7 +19,7 @@
 	$stmt->bindColumn("phone", $phone);
 	$stmt->execute();
 ?>
-<?php require('header.php'); ?>
+<?php include_once('header.php'); ?>
 		<main>
 			<form>
 				<table>
