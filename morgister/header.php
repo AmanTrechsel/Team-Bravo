@@ -1,8 +1,7 @@
 <?php session_start();
-if(isset($_SESSION['logged_in'])) {
-    echo 'U hebt toegang!';
-} else {
+if(!isset($_SESSION['logged_in'])) {
     header('Location: ../login.php?login=false');
+
 }
 ?>
 <!DOCTYPE html>
@@ -15,7 +14,7 @@ if(isset($_SESSION['logged_in'])) {
     <link href='https://fonts.googleapis.com/css?family=Cambo' rel='stylesheet'>
     <title>De morgenster</title>
     <link rel="stylesheet" href="style/style.css">
-    <?php $page = ucfirst(pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME)); ?>
+<?php $page = ucfirst(pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME)); ?>
 </head>
 <body>
 <?php
@@ -52,7 +51,7 @@ if(isset($_SESSION['logged_in'])) {
         </div>
         <ul>
             <li>Profiel</li>
-            <li>Uitloggen</li>
+            <li><a href="logout.php">Uitloggen</a></li>
         </ul>
     </header>
     <div class="navleft">
