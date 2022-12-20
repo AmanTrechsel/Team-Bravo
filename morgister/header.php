@@ -56,7 +56,7 @@
         <ul id="navigation">
             <li><a href="index.php">Home</a></li>
             <li> <a href="klassen.php">Klassen</a></li>
-            <li> <a href="cijfers.php">Cijfers</a></li>
+            <li> <a href="scholarList.php">Cijfers</a></li>
             <li><a href="agenda.php">Agenda</a></li>
             <li><a href="events.php">Events</a></li>
             <li><a href="afwezig.php">Afwezig</a></li>

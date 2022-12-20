@@ -78,7 +78,7 @@ main {
 #gradesTitle {
     margin: 0px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 #leerlingButton {
@@ -97,12 +97,16 @@ main {
 
 .subjectTable {
     display: flex;
-    width: 350px;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
     background-color: white;
 }
 
 .semesterTable {
-    width: 120px;
+    text-align: center;
+    width: 150px;
     height: 50px;
     background-color: white;
 }
@@ -111,6 +115,48 @@ main {
     text-decoration: none;
 	color: black;
 }
+
+.addgradeTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 50px;
+    background-color: white;
+}
+
+.gradeForm {
+    background-color: white;
+    width: 400px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gradeformContent {
+    justify-content: center;
+   display: flex;
+}
+
+.scholarList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.scholarBox {
+    background-color: white;
+    text-align: center;
+    margin: 10px;
+    padding: 10px; 
+}
+.scholarBox a {
+    text-decoration: none;
+	color: black;
+}
+
+/* Menu */
 
 .navleft {
     grid-column: 1/2;
