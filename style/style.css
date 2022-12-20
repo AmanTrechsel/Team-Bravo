@@ -166,11 +166,11 @@ h2{
 
 /* Contact Pagina */
 #contactpage{
-    height:45vw;
+    height:55vw;
 }
 
 #contacttitle{
-    margin-left:500px;
+    text-align: center;
     font-size:40px;
 }
 
@@ -203,11 +203,12 @@ label{
     background-color: #D9D9D9;
     color: black;
     height:50px;
+    resize: none;
 }
 
 #submit{
     grid-column: 3/6;
-    margin-left: 225px;
+    margin-left: 175px;
     border: 2px solid  #D9D9D9;
     background-color: #D9D9D9;
     height:50px;
@@ -249,7 +250,7 @@ label{
     text-align: center;
 }
 
-h3{
+.News{
     color: green;
     text-align: center;
     font-size: 2em;
