@@ -1,7 +1,7 @@
 <?php
 	try{
 		$dbhandler = new PDO("mysql:host=mysql;dbname=Morgister;charset=utf8", "root", "qwerty");
-	}catch(Execption $ex){
+	}catch(Exception $ex){
 		echo $ex;
 		die();
 	}

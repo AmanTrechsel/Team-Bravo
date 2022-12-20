@@ -25,14 +25,14 @@
                 'reason_8' => FILTER_SANITIZE_SPECIAL_CHARS,
                 'reason_9' => FILTER_SANITIZE_SPECIAL_CHARS,
 
-            )
+            );
         }
         else{
         ?>
         <?php
             try{
                 $dbHandler = new PDO("mysql:host=mysql;dbname=Morgister;charset=utf8", "root", "qwerty");
-            }catch (Expection $ex) {
+            }catch (Exception $ex) {
                 echo $ex;
             }
             if(!$dbHandler == true){
@@ -47,7 +47,7 @@
                 $statement->bindColumn('name', $name);
 
               }
-              catch (Expection $ex) {
+              catch (Exception $ex) {
                     echo $ex;
               }
             }

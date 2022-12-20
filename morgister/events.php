@@ -28,7 +28,7 @@
                 $checkEvent->bindParam(':newDate', $newDate, PDO::PARAM_STR);
                 try {                
                     $checkEvent->execute();
-                } catch (Exeption $e) {
+                } catch (Exception $e) {
                     echo $e;
                 }
 
@@ -43,7 +43,7 @@
 
                         try {
                             $stmt->execute();
-                        } catch (Exeption $e) {
+                        } catch (Exception $e) {
                             echo $e;
                         }
                     }
