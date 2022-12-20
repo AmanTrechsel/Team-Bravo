@@ -4,17 +4,34 @@
 	<?php 
 		$userID = $_SESSION['user'];
 		$role = $_SESSION['role'];
+		
+		switch($role){
+			case 0:
+				$wRole = "Ouder"; 
+				$search = "Parent";
+				break;
+			case 1:
+				$wRole = "Docent";   
+				$search = "Teachers";   
+				break; 
+			case 2:
+				$wRole = "Administratie";   
+				break;
+			default:
+				$current = 0; 
+		}
+	
 
-		$stmt = $g_DBhandeler->prepare("SELECT * FROM `Teachers` WHERE `account_id` = {$userID};");
+		$stmt = $g_DBhandeler->prepare("SELECT * FROM `{$search}` WHERE `account_id` = {$userID};");
 		try {
 			$stmt->execute();
 			$stmt->bindColumn("name", $fname); 
 			$stmt->bindColumn("surname", $lname); 
-			$stmt->bindColumn("date_of_birth", $dob); 
 			$stmt->bindColumn("adress", $adress); 
 			$stmt->bindColumn("email", $email); 
-			$stmt->bindColumn("gender", $gender); 
-			$stmt->bindColumn("grade", $grade); 
+			if ($role == 1){
+				$stmt->bindColumn("grade", $grade); 
+			}
 			$stmt->fetch();
 		} catch (Exception $e) {
 			echo $e;
@@ -34,25 +51,18 @@
 		<span>Adres</span>
 		<span><?php echo $adress;?></span>
 	</div>
+	<?php
+		if ($role == 1){
+			echo "<div class='profileInfo'>
+					<span>Klas</span>
+					<span>{$grade}</span>
+				</div>";
+		}
+	?>
+
 	<div class="profileInfo">
 		<span>Rol</span>
-		<span>
-			<?php 
-				switch($role){
-					case 0:
-						echo "Ouder";   
-						break;
-					case 1:
-						echo "Docent";   
-						break; 
-					case 2:
-						echo "Administratie";   
-						break;
-					default:
-						$current = 0; 
-				}
-			?>
-		</span>
+		<span><?= $wRole;?></span>
 	</div>
 
 
