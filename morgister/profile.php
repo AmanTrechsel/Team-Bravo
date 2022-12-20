@@ -1,10 +1,7 @@
 <?php include_once('header.php'); ?>
 <main>
 	
-	<?php 
-		$userID = $_SESSION['user'];
-		$role = $_SESSION['role'];
-		
+	<?php 		
 		switch($role){
 			case 0:
 				$wRole = "Ouder"; 

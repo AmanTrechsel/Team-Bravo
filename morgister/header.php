@@ -1,7 +1,9 @@
 <?php session_start();
 if(!isset($_SESSION['user'])) {
-    header('Location: ../login.php?login=false');
-
+    header('Location: ../login.php?login=false');   
+} else {
+    $userID = $_SESSION['user'];
+    $role = $_SESSION['role'];
 }
 ?>
 <!DOCTYPE html>
@@ -49,6 +51,23 @@ if(!isset($_SESSION['user'])) {
         <div id="logo">
             <img src="img/logo.png">
         </div>
+        <div>
+            <?php
+            	switch($_SESSION["role"]){
+                    case 0:
+                        echo"Ouder"; 
+                        break;
+                    case 1:
+                        echo "Docent";   
+                        break; 
+                    case 2:
+                        echo "Administratie";   
+                        break;
+                    default:
+                        $current = 0; 
+                }
+            ?>
+        </div>
         <ul>
             <li><a href="profile.php">Profiel</a></li>
             <li><a href="logout.php">Uitloggen</a></li>
@@ -57,10 +76,18 @@ if(!isset($_SESSION['user'])) {
     <div class="navleft">
         <ul id="navigation">
             <li><a href="index.php">Home</a></li>
-            <li> <a href="klassen.php">Klassen</a></li>
+            <?php
+                if($_SESSION['role'] >= 1) {
+                    echo '<li> <a href="klassen.php">Klassen</a></li>';
+                }
+            ?>
             <li> <a href="scholarList.php">Cijfers</a></li>
             <li><a href="agenda.php">Agenda</a></li>
             <li><a href="events.php">Events</a></li>
-            <li><a href="afwezig.php">Afwezig</a></li>
+            <li><a href="<?php if($_SESSION['role'] ==0) {
+                    echo 'absent-melden.php';
+                } else {
+                    echo 'afwezig.php';
+                }?>">Afwezig</a></li>
         </ul>
     </div>
