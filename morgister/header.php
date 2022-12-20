@@ -1,5 +1,5 @@
 <?php session_start();
-if(!isset($_SESSION['logged_in'])) {
+if(!isset($_SESSION['user'])) {
     header('Location: ../login.php?login=false');
 
 }
@@ -50,7 +50,7 @@ if(!isset($_SESSION['logged_in'])) {
             <img src="img/logo.png">
         </div>
         <ul>
-            <li>Profiel</li>
+            <li><a href="profile.php">Profiel</a></li>
             <li><a href="logout.php">Uitloggen</a></li>
         </ul>
     </header>
