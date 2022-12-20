@@ -1,0 +1,218 @@
+body {
+    margin:0;
+    padding:0;
+    font-family: 'Cambo';
+}
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background: #E2F6F6;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    grid-column: 1/7;
+}
+
+header ul {
+	margin: 0;
+	text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+header li {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 25px ;
+}
+
+header a {
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#logo {
+    padding: 20px;
+}
+
+#logo img {
+    width: 250px;
+}
+
+
+main {
+    background: #D8F4F5;
+    padding: 40px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    grid-column: 2/6;
+}
+
+
+/*Grades Page*/
+
+#mainGrades {
+    background: #D8F4F5;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    grid-column: 2/6;
+    padding-bottom: 100px;
+}
+
+#gradesTitle  a {
+    text-decoration: none;
+	color: black;
+}
+
+#gradesContent {
+    display: flex;
+    justify-content: center;
+}
+
+#gradesTitle {
+    margin: 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#leerlingButton {
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    width: 150px;
+    height: 40px;  
+    align-items: center;
+}
+
+#gradesContent > table {
+    border-spacing: 0 5px;
+    margin-top: 50px;
+}
+
+.subjectTable {
+    display: flex;
+    width: 350px;
+    background-color: white;
+}
+
+.semesterTable {
+    width: 120px;
+    height: 50px;
+    background-color: white;
+}
+
+#gradesContent a {
+    text-decoration: none;
+	color: black;
+}
+
+.navleft {
+    grid-column: 1/2;
+    margin-top: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navleft ul {
+    list-style: none;
+    text-align: center;
+    width: 50%;
+    margin-top: 0;
+}
+
+.navleft ul li {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 30px;
+    font-size: 23px;
+}
+
+.navleft a {
+    color: black;
+    text-decoration: none;
+}
+
+.navleft li:nth-child(1) {
+    background: rgba(243,102,85,50%);
+    margin-top: 0;
+}
+.navleft li:nth-child(2) {background: rgba(248,152,54,50%); }
+.navleft li:nth-child(3) {background: rgba(146,200,91,50%); }
+.navleft li:nth-child(4) {background: rgba(18,151,163,50%); }
+.navleft li:nth-child(5) {background: rgba(153,134,122,50%); }
+
+
+/*Absence lecturer*/
+
+#date{
+    position: relative;
+    left: 1140px;
+    bottom: 56px;
+    background-color: white;
+    width: 85px;
+    padding-left: 5px;
+}
+
+#headAbsence{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.AbsenceWhite{
+    background-color: white;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+}
+
+.pAbsence{
+    font-size: larger;
+    margin-left: 50px;
+}
+
+.scholarWhite{
+    background-color: white;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#whiteLine{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7px;
+}
+
+.radio{
+    height: 30px;
+    width: 30px;
+    accent-color: #477274;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.textBox{
+    height: 25px;
+    width: 180px;
+    margin-right: 5px;
+    margin-top: 10px;
+    background-color: #e9e3e3;
+    border: none;
+    padding: 5px;
+}
+
+#submit{
+    background-color: white;
+    height: 50px;
+    border: none;
+    font-size: larger;
+}
