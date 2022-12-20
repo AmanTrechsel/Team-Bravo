@@ -1,4 +1,4 @@
-<?php require('header.php'); ?>
+<?php include_once('header.php'); ?>
 
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST"){

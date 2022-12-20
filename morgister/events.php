@@ -1,4 +1,4 @@
-<?php require('header.php'); ?>
+<?php include_once('header.php'); ?>
 
     <main>
         <h1>Evenementen:</h1>

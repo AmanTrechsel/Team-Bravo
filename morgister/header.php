@@ -1,14 +1,20 @@
+<?php session_start();
+if(!isset($_SESSION['logged_in'])) {
+    header('Location: ../login.php?login=false');
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require('../DBconnection.php'); ?>
+    <?php require_once('../DBconnection.php'); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Cambo' rel='stylesheet'>
     <title>De morgenster</title>
     <link rel="stylesheet" href="style/style.css">
-    <?php $page = ucfirst(pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME)); ?>
+<?php $page = ucfirst(pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME)); ?>
 </head>
 <body>
 <?php
@@ -37,9 +43,7 @@
         margin-left: 10px;
         border-radius: 30px 0 0 30px;
     }
-
 </style>
-
 <div id="container">
     <header>
         <div id="logo">
@@ -47,11 +51,9 @@
         </div>
         <ul>
             <li>Profiel</li>
-            <li>Uitloggen</li>
+            <li><a href="logout.php">Uitloggen</a></li>
         </ul>
-
     </header>
-
     <div class="navleft">
         <ul id="navigation">
             <li><a href="index.php">Home</a></li>

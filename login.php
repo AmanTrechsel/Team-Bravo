@@ -1,38 +1,49 @@
-<?php include_once('header.php');?>
-<div id="item2"></div>
 <?php
-    try {
-        $connection = new PDO("mysql:host=mysql;dbname=Morgister;charset=utf8", "root", "qwerty");
-    } catch(Exception $exception) {
-        echo $exception;
-        exit;
+session_start();
+require_once('DBconnection.php');
+if(isset($_POST['submit'])){
+    $checkUser = $g_DBhandeler->prepare("SELECT * FROM `Accounts` WHERE `username` = :username;");
+    $filtInput = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+    $checkUser->bindParam("username", $filtInput, PDO::PARAM_STR);
+    $checkUser->execute();
+    $row = $checkUser->fetch(PDO::FETCH_ASSOC);
+    if($row) {
+        $getPass = $g_DBhandeler->prepare("SELECT * FROM `Accounts` WHERE `username`= :username");
+        $getPass->bindParam("username", $_POST['username'], PDO::PARAM_STR);
+        $getPass->execute();
+        $getPass->bindColumn("password", $pass); 
+        $getPass->bindColumn("role", $role); 
+        while($result = $getPass->fetch()){ 
+            if(password_verify($_POST['password'], $pass)){
+                $_SESSION['logged_in'] = $role;
+                header('Location: morgister/index.php?login=true');
+            } else{
+                //If incorrect -> Give feedback and include loginForm
+                header('Location: login.php?login=false');
+                // echo password_hash($_POST['password'], PASSWORD_BCRYPT);
+            }
+        }    
+    } else {
+        header('Location: login.php?login=false');
     }
-    //Check if a form has been posted to the script
-    //Roles:
-    //0 = Parent
-    //1 = Teacher
-    //2 = Administration
-    if(isset($_POST['submit'])){
-        $statement = $connection->prepare("SELECT `password`, `role` FROM `Accounts` WHERE `username` = :username;");
-        $statement->bindParam("username", $_POST['username'], PDO::PARAM_STR);
-        $statement->execute();
-        $statement->bindColumn("role", $role); 
-        if(password_verify($_POST['password'], ($statement->fetch())['password']))
-        {
-            $_SESSION['logged_in'] = $role;
-            echo "<p>You are logged in</p>";
-            header('contact.php');
-        }
-        else{
-            //If incorrect -> Give feedback and include loginForm
-            echo "<p style='color: red;'>wrong username and/or password</p>";
-            echo password_hash($_POST['password'], PASSWORD_BCRYPT);
-        }
-    }
+}
+include_once('header.php');
+
 ?>
+
+<div id="item2"></div>
 <div id="mainLogin">
+<?php
+    if(isset($_GET['login']) == "false"){
+        echo "<h2 style='color: red;'>Inloggen mislukt!</h2>";
+    } elseif (isset($_GET['login']) == "falsepass") {
+        echo "<h2 style='color: red;'>Gebruikersnaam en wachtwoord komen niet overeen!</h2>";
+    }
+
+?>
+
     <h2 id="loginTitle">Log hier in om in het leerlingvolgsysteem te komen.</h2>
-    <form action="#" method="post" id="loginForm">
+    <form action="login.php" method="post" id="loginForm">
         <div class="login">
             <span><h3>Gebruikersnaam:</h3></span>
             <input type="text" name="username" class="loginBox">

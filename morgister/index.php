@@ -1,5 +1,6 @@
-<?php require('header.php'); ?>
-<?php require('DBconnection.php');?>
+<?php require_once('header.php'); 
+
+?>
 <main>
 
 
