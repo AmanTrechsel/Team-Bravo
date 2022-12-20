@@ -5,7 +5,7 @@
         <hr>
         <?php
             // Check if user has administration role
-            if($_SESSION['logged_in'] == 2) {
+            if($_SESSION['role'] == 2) {
                 echo "<a href='events.php?event=new'><button id='newEvent'>Nieuw evenement</button></a>";
 
                 if(isset($_GET['event'])){
