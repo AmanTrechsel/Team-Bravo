@@ -52,6 +52,7 @@ main {
     margin-top: 100px;
     margin-bottom: 100px;
     grid-column: 2/6;
+    position: relative;
 }
 
 /*Grades Page*/
@@ -144,9 +145,8 @@ main {
 .navleft li:nth-child(2) {background: rgba(248,152,54,50%); }
 .navleft li:nth-child(3) {background: rgba(146,200,91,50%); }
 .navleft li:nth-child(4) {background: rgba(18,151,163,50%); }
-.navleft li:nth-child(5) {background: rgba(153,134,122,50%); }
-
-
+.navleft li:nth-child(5) {background: rgba(165,25,200,50%); }
+.navleft li:nth-child(6) {background: rgba(153,134,122,50%); }
 /*Absence lecturer*/
 
 #date{
@@ -214,4 +214,11 @@ main {
     height: 50px;
     border: none;
     font-size: larger;
+}
+
+/* Events page */
+#newEvent {
+    position: absolute;
+    right: 20px;
+    top: 20px;
 }
