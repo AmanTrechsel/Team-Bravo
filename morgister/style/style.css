@@ -274,6 +274,10 @@ main {
     border: none;
     font-size: larger;
 }
+.scholarWhite div{
+    width: 150px;
+    margin-right: 20px;
+}
 
 /* Events page */
 #newEvent {
