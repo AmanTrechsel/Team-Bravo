@@ -1,38 +1,8 @@
-<?php include_once('header.php'); ?>
-
-    <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-            $inputs = array(
-                'scholar_0' => FILTER_UNSAFE_RAW,
-                'scholar_2' => FILTER_UNSAFE_RAW,
-                'scholar_3' => FILTER_UNSAFE_RAW,
-                'scholar_4' => FILTER_UNSAFE_RAW,
-                'scholar_5' => FILTER_UNSAFE_RAW,
-                'scholar_6' => FILTER_UNSAFE_RAW,
-                'scholar_7' => FILTER_UNSAFE_RAW,
-                'scholar_8' => FILTER_UNSAFE_RAW,
-                'scholar_9' => FILTER_UNSAFE_RAW,
-
-                'reason_0' => FILTER_SANITIZE_SPECIAL_CHARS,
-                'reason_1' => FILTER_SANITIZE_SPECIAL_CHARS,
-                'reason_2' => FILTER_SANITIZE_SPECIAL_CHARS,
-                'reason_3' => FILTER_SANITIZE_SPECIAL_CHARS,
-                'reason_4' => FILTER_SANITIZE_SPECIAL_CHARS,
-                'reason_5' => FILTER_SANITIZE_SPECIAL_CHARS,
-                'reason_6' => FILTER_SANITIZE_SPECIAL_CHARS,
-                'reason_7' => FILTER_SANITIZE_SPECIAL_CHARS,
-                'reason_8' => FILTER_SANITIZE_SPECIAL_CHARS,
-                'reason_9' => FILTER_SANITIZE_SPECIAL_CHARS,
-
-            );
-        }
-        else{
-        ?>
+<?php require('header.php'); ?>
         <?php
             try{
-                $dbHandler = new PDO("mysql:host=mysql;dbname=Morgister;charset=utf8", "root", "qwerty");
-            }catch (Exception $ex) {
+                $dbHandler = new PDO("mysql:host=mysql;dbname=Morgister_test;charset=utf8", "root", "qwerty");
+            }catch (Expection $ex) {
                 echo $ex;
             }
             if(!$dbHandler == true){
@@ -40,14 +10,19 @@
             }
             else{
               try{
-                $statement = $dbHandler->prepare("SELECT name FROM Scholar;");
+                $statement = $dbHandler->prepare("SELECT name, reason
+                                                  FROM Scholar
+                                                  INNER JOIN Absence ON Scholar.Scholar_id=Absence.Scholar_id;");
+
                                            
                 $statement->execute();
 
+
                 $statement->bindColumn('name', $name);
+                $statement->bindColumn('reason', $reason);
 
               }
-              catch (Exception $ex) {
+              catch (Expection $ex) {
                     echo $ex;
               }
             }
@@ -77,17 +52,25 @@
                             $i=0;
                             while($result = $statement->fetch()){
                                 echo '<div class="scholarWhite">
-                                    <p class="pAbsence">'.$name.'</p>
-                                    <input type="radio" name="scholar_'.$i.'" value="Aanwezig" class="radio" checked>
-                                    <input type="radio" name="scholar_'.$i.'" value="Afwezig" class="radio">
-                                    <input type="text" name="reason_'.$i.'" placeholder="Reden van afwezigheid" class="textBox">
-                                    </div>';
-                                
+                                        <div>
+                                        <p class="pAbsence">'.$name.'</p>
+                                        </div>
+                                        <div>
+                                        <input type="radio" name="scholar_'.$i.'" value="Aanwezig" class="radio" disabled>
+                                        </div>
+                                        <div>
+                                        <input type="radio" name="scholar_'.$i.'" value="Afwezig" class="radio" checked>
+                                        </div>
+                                        <div>
+                                        <p class="pAbsence">'.$reason.'</p>
+                                        </div>
+                                      </div>';  
                                 $i++;
                             }
                         ?>
-                        <input type="submit" name="submitAbsence" value="Verzenden" id="submit">
+                        
+                        <!--<input type="submit" name="submitAbsence" value="Verzenden" id="submit">-->
                     </div>
                 </form>
-        <?php } ?>      
+            </main>     
 <?php require('footer.php'); ?>
