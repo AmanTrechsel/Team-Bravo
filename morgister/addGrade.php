@@ -42,9 +42,8 @@
                 echo $ex;
         }
         ?>
-        <p>Cijfer succesvol toegevoegd</p>
     </div>
-  
+    <div class="updateContent"><p class="updateMsg">Cijfer succesvol toegevoegd</p></div> 
     <?php
         }
     }
