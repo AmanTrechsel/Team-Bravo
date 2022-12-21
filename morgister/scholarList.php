@@ -6,8 +6,8 @@
     </div> 
     <div class="scholarList">    
         <?php
-                  
-        $stmt = $g_DBhandeler->prepare("SELECT * FROM Scholar");
+        $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister_test", "root", "qwerty");       
+        $stmt = $g_dbHandler->prepare("SELECT * FROM Scholar");
         $stmt->execute();
            
         if($stmt->rowCount() > 0):
@@ -28,7 +28,7 @@
         endforeach;
 
         endif;
-        $g_DBhandeler = null;
+        $g_dbhandeler = null;
            
         ?>
     </div>

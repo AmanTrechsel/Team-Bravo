@@ -19,7 +19,7 @@
             <?php 
 
                 try {
-                    $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister", "root", "qwerty");
+                    $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister_test", "root", "qwerty");
                 } catch(Exception $ex) {
                     echo $ex;
                 }

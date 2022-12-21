@@ -28,7 +28,7 @@
             $grade = filter_input(INPUT_POST, 'grade', FILTER_SANITIZE_SPECIAL_CHARS);
             
             try {
-                $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister", "root", "qwerty");
+                $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister_test", "root", "qwerty");
 
 
             $stmt = $g_dbHandler->prepare("INSERT INTO `Grades` (`grade_id`, `grade`, `subject_id`, `scholar_id`) 

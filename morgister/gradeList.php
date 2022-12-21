@@ -20,7 +20,7 @@
             <?php
 
             try {
-                $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister", "root", "qwerty");
+                $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister_test", "root", "qwerty");
             
                 $stmt = $g_dbHandler->prepare("SELECT * FROM `Grades` WHERE scholar_id = :scholarId AND subject_id = :subjectId");
                 $stmt->bindParam(':scholarId', $scholar, PDO::PARAM_STR);

@@ -2,7 +2,7 @@
 
 <div id="mainGrades">
     <div id="gradesContent">
-        <h2 class="subjectTable">Leerlingen</h2>
+        <h2 class="subjectTable">Cijfers</h2>
     </div> 
     <div class="scholarList">    
         <?php
