@@ -1,7 +1,7 @@
 <?php include_once('header.php'); 
  
  if(isset($_GET['scholar_id'])){
-    $scholar = $_GET['scholar_id'];
+    $l_scholar = $_GET['scholar_id'];
     
 ?>
 
@@ -19,24 +19,24 @@
             <?php 
 
                 try {
-                    $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister_test", "root", "qwerty");
-                } catch(Exception $ex) {
-                    echo $ex;
+                    require_once('DBconnection.php');
+                } catch(Exception $l_exception) {
+                    echo $l_exception;
                 }
 
-                $stmt = $g_dbHandler->prepare("SELECT * FROM Subjects");
+                $l_statement = $g_dbHandler->prepare("SELECT * FROM Subjects");
 
-                $stmt->execute();
+                $l_statement->execute();
         
-                if($stmt->rowCount() > 0):
-                        $rows = $stmt->fetchAll();
-                        foreach($rows as $row):
+                if($l_statement->rowCount() > 0):
+                        $l_rows = $l_statement->fetchAll();
+                        foreach($l_rows as $l_row):
 
                 ?>
 
                 <tr>
-                    <td class="semesterTable"><?php echo $row['subject_name']; ?></td>
-                    <td class="semesterTable"><?php echo "<a href='gradeList.php?scholar_id=" . $scholar . "&subject_id=" . $row['subject_id'] . "'>Bekijk cijfers</a>" ?></td> 
+                    <td class="semesterTable"><?php echo $l_row['subject_name']; ?></td>
+                    <td class="semesterTable"><?php echo "<a href='gradeList.php?scholar_id=" . $l_scholar . "&subject_id=" . $l_row['subject_id'] . "'>Bekijk cijfers</a>" ?></td> 
                 </tr>
 
                 <?php

@@ -20,32 +20,32 @@
                 }
 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
-                    $newTitle = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
-                    $newDesc = filter_input(INPUT_POST, 'desc', FILTER_SANITIZE_SPECIAL_CHARS);
-                    $newDate = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_SPECIAL_CHARS);
+                    $l_newTitle = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
+                    $l_newDesc = filter_input(INPUT_POST, 'desc', FILTER_SANITIZE_SPECIAL_CHARS);
+                    $l_newDate = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_SPECIAL_CHARS);
 
-                    $checkEvent = $g_DBhandeler->prepare("SELECT * FROM `Events` WHERE `title` = :newTitle AND `date` = :newDate");
-                    $checkEvent->bindParam(':newTitle', $newTitle, PDO::PARAM_STR);
-                    $checkEvent->bindParam(':newDate', $newDate, PDO::PARAM_STR);
+                    $l_checkEvent = $g_dbHandler->prepare("SELECT * FROM `Events` WHERE `title` = :newTitle AND `date` = :newDate");
+                    $l_checkEvent->bindParam(':newTitle', $l_newTitle, PDO::PARAM_STR);
+                    $l_checkEvent->bindParam(':newDate', $l_newDate, PDO::PARAM_STR);
                     try {                
-                        $checkEvent->execute();
-                    } catch (Exception $e) {
-                        echo $e;
+                        $l_checkEvent->execute();
+                    } catch (Exception $l_exception) {
+                        echo $l_exception;
                     }
 
-                    if ($checkEvent->rowCount() == 0) {
-                        if(empty($newTitle)||empty($newDesc)||empty($newDate)) {
+                    if ($l_checkEvent->rowCount() == 0) {
+                        if (empty($l_newTitle)||empty($l_newDesc)||empty($l_newDate)) {
                             echo '<b style="color:red">Fill in all fields!</b>';
                         } else {
-                            $stmt = $g_DBhandeler->prepare("INSERT INTO `Events`(`title`, `description`, `date`) VALUES (?,?,?)");
-                            $stmt->bindParam(1, $newTitle, PDO::PARAM_STR);
-                            $stmt->bindParam(2, $newDesc, PDO::PARAM_STR);
-                            $stmt->bindParam(3, $newDate, PDO::PARAM_STR);
+                            $l_statement = $g_dbHandler->prepare("INSERT INTO `Events`(`title`, `description`, `date`) VALUES (?,?,?)");
+                            $l_statement->bindParam(1, $l_newTitle, PDO::PARAM_STR);
+                            $l_statement->bindParam(2, $l_newDesc, PDO::PARAM_STR);
+                            $l_statement->bindParam(3, $l_newDate, PDO::PARAM_STR);
 
                             try {
-                                $stmt->execute();
-                            } catch (Exception $e) {
-                                echo $e;
+                                $l_statement->execute();
+                            } catch (Exception $l_exception) {
+                                echo $l_exception;
                             }
                         }
                     } else {
@@ -54,18 +54,18 @@
                 } 
             }
 
-            $getevents = $g_DBhandeler->prepare("SELECT * FROM `Events` ORDER BY `event_id` DESC");
-            $getevents->execute();
+            $l_getEvents = $g_dbHandler->prepare("SELECT * FROM `Events` ORDER BY `event_id` DESC");
+            $l_getEvents->execute();
 
-            $getevents->bindColumn("event_id", $id);
-            $getevents->bindColumn("title", $title);
-            $getevents->bindColumn("description", $desc);
-            $getevents->bindColumn("date", $date);
+            $l_getEvents->bindColumn("event_id", $l_id);
+            $l_getEvents->bindColumn("title", $l_title);
+            $l_getEvents->bindColumn("description", $l_description);
+            $l_getEvents->bindColumn("date", $l_date);
 
-            while($result = $getevents->fetch()) {
-                echo "<h3>{$title}</h3>";
-                echo "<p><b>{$date}</b></p>";
-                echo "<p>{$desc}</p><hr>";
+            while($l_result = $l_getEvents->fetch()) {
+                echo "<h3>{$l_title}</h3>";
+                echo "<p><b>{$l_date}</b></p>";
+                echo "<p>{$l_description}</p><hr>";
             }
 
         ?>

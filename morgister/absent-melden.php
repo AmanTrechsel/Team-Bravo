@@ -4,12 +4,12 @@
 
 <?php 
 
-$getID = $g_DBhandeler->prepare("SELECT * FROM `Parent` WHERE `account_id` = {$userID}");
+$getID = $g_dbHandler->prepare("SELECT * FROM `Parent` WHERE `account_id` = {$g_userId}");
 $getID->execute();
 $getID->bindColumn("parent_id", $parentID); 
 $getID->fetch();
 
-$getChild = $g_DBhandeler->prepare("SELECT * FROM `Scholar` WHERE `parent_id` = {$parentID}");
+$getChild = $g_dbHandler->prepare("SELECT * FROM `Scholar` WHERE `parent_id` = {$parentID}");
 $getChild->execute();
 $getChild->bindColumn("name", $cName); 
 $getChild->bindColumn("surname", $csurName); 
@@ -51,27 +51,27 @@ Wie:
 
 if($_SERVER['REQUEST_METHOD'] === "POST") {
     $reason = filter_input(INPUT_POST, 'reason', FILTER_SANITIZE_SPECIAL_CHARS);
-    $date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_SPECIAL_CHARS);
-    $scholar = filter_input(INPUT_POST, 'scholar', FILTER_SANITIZE_SPECIAL_CHARS);
+    $l_date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_SPECIAL_CHARS);
+    $l_scholar = filter_input(INPUT_POST, 'scholar', FILTER_SANITIZE_SPECIAL_CHARS);
     
-    $stmt = $g_DBhandeler->prepare("INSERT INTO `Absence`(`reason`, `date`, `scholar_id`) VALUES (?,?,?)");
-    $stmt->bindParam(1, $reason, PDO::PARAM_STR);
-    $stmt->bindParam(2, $date, PDO::PARAM_STR);
-    $stmt->bindParam(3, $scholar, PDO::PARAM_INT);
+    $l_statement = $g_dbHandler->prepare("INSERT INTO `Absence`(`reason`, `date`, `scholar_id`) VALUES (?,?,?)");
+    $l_statement->bindParam(1, $reason, PDO::PARAM_STR);
+    $l_statement->bindParam(2, $l_date, PDO::PARAM_STR);
+    $l_statement->bindParam(3, $l_scholar, PDO::PARAM_INT);
 
-    $checkDate = $g_DBhandeler->prepare("SELECT * FROM `Absence` WHERE `date` = :dates AND `scholar_id` = :scholar");
-    $checkDate->bindParam('dates', $date, PDO::PARAM_STR);
-    $checkDate->bindParam('scholar', $scholar, PDO::PARAM_INT);
-    $checkDate->execute();
+    $l_checkDate = $g_dbHandler->prepare("SELECT * FROM `Absence` WHERE `date` = :dates AND `scholar_id` = :scholar");
+    $l_checkDate->bindParam('dates', $l_date, PDO::PARAM_STR);
+    $l_checkDate->bindParam('scholar', $l_scholar, PDO::PARAM_INT);
+    $l_checkDate->execute();
 
-    if($checkDate->rowCount() > 0) {
+    if($l_checkDate->rowCount() > 0) {
         echo "<h3>Er staat al een absentie melding op deze datum!</h3>";
     } else {
         try {
-            $stmt->execute();
-            echo "<h3>Absentie succesvol verstuurd voor de datum: <b>{$date}</b>, met als reden: <b>{$reason}</b></h3>";
-        } catch (Exception $e) {
-            echo $e;
+            $l_statement->execute();
+            echo "<h3>Absentie succesvol verstuurd voor de datum: <b>{$l_date}</b>, met als reden: <b>{$reason}</b></h3>";
+        } catch (Exception $l_exception) {
+            echo $l_exception;
         }
     }
 

@@ -2,8 +2,8 @@
 if(!isset($_SESSION['user'])) {
     header('Location: ../login.php?login=false');   
 } else {
-    $userID = $_SESSION['user'];
-    $role = $_SESSION['role'];
+    $g_userId = $_SESSION['user'];
+    $g_role = $_SESSION['role'];
 }
 ?>
 <!DOCTYPE html>
@@ -16,32 +16,32 @@ if(!isset($_SESSION['user'])) {
     <link href='https://fonts.googleapis.com/css?family=Cambo' rel='stylesheet'>
     <title>De morgenster</title>
     <link rel="stylesheet" href="style/style.css">
-<?php $page = ucfirst(pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME)); ?>
+<?php $g_page = ucfirst(pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME)); ?>
 </head>
 <body>
 <?php
-    switch($page){
+    switch($g_page){
         case 'Klassen':
-            $current = 2;   
+            $g_current = 2;   
             break;
         case 'Cijfers':
-            $current = 3;   
+            $g_current = 3;   
             break; 
         case 'Agenda':
-            $current = 4;   
+            $g_current = 4;   
             break;
         case 'Events':
-            $current = 5;   
+            $g_current = 5;   
             break;
         case 'Afwezig':
-            $current = 6;   
+            $g_current = 6;   
             break;
         default:
-            $current = 1; 
+            $g_current = 1; 
     }
 ?>
 <style>
-    .navleft li:nth-child(<?= $current;?>) {
+    .navleft li:nth-child(<?= $g_current;?>) {
         margin-left: 10px;
         border-radius: 30px 0 0 30px;
     }
@@ -64,7 +64,7 @@ if(!isset($_SESSION['user'])) {
                         echo "Administratie";   
                         break;
                     default:
-                        $current = 0; 
+                        $g_current = 0; 
                 }
             ?>
         </div>

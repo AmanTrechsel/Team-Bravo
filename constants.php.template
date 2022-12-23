@@ -1,0 +1,21 @@
+<?php
+  /*
+      TEMPLATE FILE; NO SENSITIVE DATA FOUND HERE!
+      Insert your credentials here and rename this file to 'constants.php'.
+
+      This is a sensitive file containing credentials and the hostname of the database.
+      Under any circumstance DO NOT SHARE THIS FILE WITH ANYONE!
+      This file may only be found on local drives owned by administrators of the system.
+  */
+
+  // Hostname of the database
+  $G_HOSTNAME = '';
+
+  // Username of the database user
+  $G_USERNAME = '';
+  // Password of the database user
+  $G_PASSWORD = '';
+  
+  // Name of the database to get
+  $G_MAIN_DB = '';
+?>

@@ -1,30 +1,29 @@
 <?php require('header.php'); ?>
         <?php
-            try{
-                $dbHandler = new PDO("mysql:host=mysql;dbname=Morgister_test;charset=utf8", "root", "qwerty");
-            }catch (Expection $ex) {
-                echo $ex;
+            try {
+                require_once('DBconnection.php');
+            } catch (Exception $l_exception) {
+                echo $l_exception;
             }
-            if(!$dbHandler == true){
+            if(!$g_dbHandler == true) {
                 echo "The connection is not correct, please try again";
-            }
-            else{
-              try{
-                $statement = $dbHandler->prepare("SELECT name, reason
-                                                  FROM Scholar
-                                                  INNER JOIN Absence ON Scholar.Scholar_id=Absence.Scholar_id;");
+            } else {
+                try {
+                    $l_statement = $g_dbHandler->prepare("SELECT name, reason
+                                                      FROM Scholar
+                                                      INNER JOIN Absence ON Scholar.Scholar_id=Absence.Scholar_id;");
 
-                                           
-                $statement->execute();
+                                              
+                    $l_statement->execute();
 
 
-                $statement->bindColumn('name', $name);
-                $statement->bindColumn('reason', $reason);
+                    $l_statement->bindColumn('name', $l_name);
+                    $l_statement->bindColumn('reason', $l_reason);
 
-              }
-              catch (Expection $ex) {
-                    echo $ex;
-              }
+                }
+                catch (Exception $l_exception) {
+                    echo $l_exception;
+                }
             }
             
             ?>
@@ -50,10 +49,10 @@
                     <div id="whiteLine">
                         <?php	
                             $i=0;
-                            while($result = $statement->fetch()){
+                            while ($l_result = $l_statement->fetch()) {
                                 echo '<div class="scholarWhite">
                                         <div>
-                                        <p class="pAbsence">'.$name.'</p>
+                                        <p class="pAbsence">'.$l_name.'</p>
                                         </div>
                                         <div>
                                         <input type="radio" name="scholar_'.$i.'" value="Aanwezig" class="radio" disabled>
@@ -62,7 +61,7 @@
                                         <input type="radio" name="scholar_'.$i.'" value="Afwezig" class="radio" checked>
                                         </div>
                                         <div>
-                                        <p class="pAbsence">'.$reason.'</p>
+                                        <p class="pAbsence">'.$l_reason.'</p>
                                         </div>
                                       </div>';  
                                 $i++;

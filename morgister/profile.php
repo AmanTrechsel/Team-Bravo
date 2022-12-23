@@ -2,64 +2,64 @@
 <main>
 	
 	<?php 		
-		switch($role){
+		switch($g_role){
 			case 0:
-				$wRole = "Ouder"; 
-				$search = "Parent";
+				$l_role = "Ouder"; 
+				$l_search = "Parent";
 				break;
 			case 1:
-				$wRole = "Docent";   
-				$search = "Teachers";   
+				$l_role = "Docent";   
+				$l_search = "Teachers";   
 				break; 
 			case 2:
-				$wRole = "Administratie";   
+				$l_role = "Administratie";   
 				break;
 			default:
-				$current = 0; 
+				$g_current = 0; 
 		}
 	
 
-		$stmt = $g_DBhandeler->prepare("SELECT * FROM `{$search}` WHERE `account_id` = {$userID};");
+		$l_statement = $g_dbHandler->prepare("SELECT * FROM `{$l_search}` WHERE `account_id` = {$g_userId};");
 		try {
-			$stmt->execute();
-			$stmt->bindColumn("name", $fname); 
-			$stmt->bindColumn("surname", $lname); 
-			$stmt->bindColumn("adress", $adress); 
-			$stmt->bindColumn("email", $email); 
-			if ($role == 1){
-				$stmt->bindColumn("grade", $grade); 
+			$l_statement->execute();
+			$l_statement->bindColumn("name", $l_firstName); 
+			$l_statement->bindColumn("surname", $l_lastName); 
+			$l_statement->bindColumn("adress", $l_adress); 
+			$l_statement->bindColumn("email", $l_email); 
+			if ($g_role == 1){
+				$l_statement->bindColumn("grade", $l_grade); 
 			}
-			$stmt->fetch();
-		} catch (Exception $e) {
-			echo $e;
+			$l_statement->fetch();
+		} catch (Exception $l_exception) {
+			echo $l_exception;
 		}
 
 	?>	
 
 	<div class="profileInfo">
 		<span>Naam</span>
-		<span><?php echo $fname.' '.$lname;?></span>
+		<span><?php echo $l_firstName.' '.$l_lastName;?></span>
 	</div>
 	<div class="profileInfo">
 		<span>Email-adres</span>
-		<span><?php echo $email;?></span>
+		<span><?php echo $l_email;?></span>
 	</div>
 	<div class="profileInfo">
 		<span>Adres</span>
-		<span><?php echo $adress;?></span>
+		<span><?php echo $l_adress;?></span>
 	</div>
 	<?php
-		if ($role == 1){
+		if ($g_role == 1){
 			echo "<div class='profileInfo'>
 					<span>Klas</span>
-					<span>{$grade}</span>
+					<span>{$l_grade}</span>
 				</div>";
 		}
 	?>
 
 	<div class="profileInfo">
 		<span>Rol</span>
-		<span><?= $wRole;?></span>
+		<span><?= $l_role;?></span>
 	</div>
 
 

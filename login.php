@@ -2,22 +2,22 @@
 session_start();
 require_once('DBconnection.php');
 if(isset($_POST['submit'])){
-    $checkUser = $g_DBhandeler->prepare("SELECT * FROM `Accounts` WHERE `username` = :username;");
-    $filtInput = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
-    $checkUser->bindParam("username", $filtInput, PDO::PARAM_STR);
-    $checkUser->execute();
-    $row = $checkUser->fetch(PDO::FETCH_ASSOC);
-    if($row) {
-        $getPass = $g_DBhandeler->prepare("SELECT * FROM `Accounts` WHERE `username`= :username");
-        $getPass->bindParam("username", $_POST['username'], PDO::PARAM_STR);
-        $getPass->execute();
-        $getPass->bindColumn("password", $pass); 
-        $getPass->bindColumn("account_id", $userID); 
-        $getPass->bindColumn("role", $role); 
-        while($result = $getPass->fetch()){ 
-            if(password_verify($_POST['password'], $pass)){
-                $_SESSION['role'] = $role;
-                $_SESSION['user'] = $userID;
+    $l_checkUser = $g_dbHandler->prepare("SELECT * FROM `Accounts` WHERE `username` = :username;");
+    $l_filterInput = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+    $l_checkUser->bindParam("username", $l_filterInput, PDO::PARAM_STR);
+    $l_checkUser->execute();
+    $l_row = $l_checkUser->fetch(PDO::FETCH_ASSOC);
+    if($l_row) {
+        $l_getPassword = $g_dbHandler->prepare("SELECT * FROM `Accounts` WHERE `username`= :username");
+        $l_getPassword->bindParam("username", $_POST['username'], PDO::PARAM_STR);
+        $l_getPassword->execute();
+        $l_getPassword->bindColumn("password", $l_password); 
+        $l_getPassword->bindColumn("account_id", $g_userId); 
+        $l_getPassword->bindColumn("role", $g_role); 
+        while($l_result = $l_getPassword->fetch()){ 
+            if(password_verify($_POST['password'], $l_password)){
+                $_SESSION['role'] = $g_role;
+                $_SESSION['user'] = $g_userId;
                 header('Location: morgister/index.php?login=true');
             } else{
                 //If incorrect -> Give feedback and include loginForm

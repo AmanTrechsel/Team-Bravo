@@ -8,23 +8,23 @@
         <?php
                   
         try {
-        $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister", "root", "qwerty");
-        } catch(Exception $ex) {
-                echo $ex;
+            require_once('DBconnection.php');
+        } catch(Exception $l_exception) {
+                echo $l_exception;
         }   
-        $stmt = $g_dbHandler->prepare("SELECT * FROM Scholar");
-        $stmt->execute();
+        $l_statement = $g_dbHandler->prepare("SELECT * FROM Scholar");
+        $l_statement->execute();
            
-        if($stmt->rowCount() > 0):
-            $rows = $stmt->fetchAll();
-            foreach($rows as $row):
+        if($l_statement->rowCount() > 0):
+            $l_rows = $l_statement->fetchAll();
+            foreach($l_rows as $l_row):
 
         ?>
 
      
         <div class="scholarBox">
-            <p><?php echo $row['name'], " ", $row['surname'], "</p><p>", "Leerling nummer: ", $row['scholar_id']; ?>
-            <p><?php echo "<a href='subjectListParents.php?scholar_id=" . $row['scholar_id'] . "'>Bekijk cijfers</a>"; ?><p>
+            <p><?php echo $l_row['name'], " ", $l_row['surname'], "</p><p>", "Leerling nummer: ", $l_row['scholar_id']; ?>
+            <p><?php echo "<a href='subjectListParents.php?scholar_id=" . $l_row['scholar_id'] . "'>Bekijk cijfers</a>"; ?><p>
         </div>
             
 

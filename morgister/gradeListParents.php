@@ -1,13 +1,13 @@
 <?php include_once('header.php'); 
  
  if(isset($_GET['scholar_id'])&&($_GET['subject_id'])){
-    $scholar = $_GET['scholar_id'];
-    $subject = $_GET['subject_id'];
+    $l_scholar = $_GET['scholar_id'];
+    $l_subject = $_GET['subject_id'];
 ?>
 
 <div id="mainGrades">
     <div id="gradesTitle">
-        <?php echo "<a href='subjectListParents.php?scholar_id=" . $scholar . "'><p id='leerlingButton'>Vorige pagina</p></a>" ?>
+        <?php echo "<a href='subjectListParents.php?scholar_id=" . $l_scholar . "'><p id='leerlingButton'>Vorige pagina</p></a>" ?>
     </div>
     <div id="gradesContent">
         <table>
@@ -18,25 +18,25 @@
             <?php
 
             try {
-                $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister", "root", "qwerty");
+                require_once('DBconnection.php');
             
-                $stmt = $g_dbHandler->prepare("SELECT * FROM `Grades` WHERE scholar_id = :scholarId AND subject_id = :subjectId");
-                $stmt->bindParam(':scholarId', $scholar, PDO::PARAM_STR);
-                $stmt->bindParam(':subjectId', $subject, PDO::PARAM_STR);
-                $stmt->execute();
+                $l_statement = $g_dbHandler->prepare("SELECT * FROM `Grades` WHERE scholar_id = :scholarId AND subject_id = :subjectId");
+                $l_statement->bindParam(':scholarId', $l_scholar, PDO::PARAM_STR);
+                $l_statement->bindParam(':subjectId', $l_subject, PDO::PARAM_STR);
+                $l_statement->execute();
 
-            } catch(Exception $ex) {
-                echo $ex;
+            } catch(Exception $l_exception) {
+                echo $l_exception;
             }
 
-            if($stmt->rowCount() > 0):
-                $rows = $stmt->fetchAll();
-                foreach($rows as $row):
+            if($l_statement->rowCount() > 0):
+                $l_rows = $l_statement->fetchAll();
+                foreach($l_rows as $l_row):
 
             ?>
 
             <tr>
-                <td class="semesterTable"><?php echo $row['grade']; ?></td> 
+                <td class="semesterTable"><?php echo $l_row['grade']; ?></td> 
             </tr>
 
             <?php
