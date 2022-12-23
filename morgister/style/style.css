@@ -32,9 +32,8 @@ header li {
 }
 
 header a {
-	color: white;
 	text-decoration: none;
-	text-transform: uppercase;
+	color:black;
 }
 
 #logo {
@@ -136,7 +135,7 @@ main {
 
 .gradeformContent {
     justify-content: center;
-   display: flex;
+    display: flex;
 }
 
 .scholarList {
@@ -154,6 +153,20 @@ main {
 .scholarBox a {
     text-decoration: none;
 	color: black;
+}
+
+.updateMsg {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 50px;
+}
+
+.updateContent {
+    display: flex;
+    justify-content: center;
 }
 
 /* Menu */
@@ -261,10 +274,24 @@ main {
     border: none;
     font-size: larger;
 }
+.scholarWhite div{
+    width: 150px;
+    margin-right: 20px;
+}
 
 /* Events page */
 #newEvent {
     position: absolute;
     right: 20px;
     top: 20px;
+}
+
+/* Profile page */
+.profileInfo {
+    background: white;
+    margin-bottom:5px;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
 }

@@ -7,7 +7,7 @@
 
 <div id="mainGrades">
     <div id="gradesTitle">
-        <a href="scholarList.php"><p id="leerlingButton">Leerlingen</p></a>
+        <a href="scholarListParents.php"><p id="leerlingButton">Cijfers</p></a>
     </div>
     <div id="gradesContent">
         <table>
@@ -36,7 +36,7 @@
 
                 <tr>
                     <td class="semesterTable"><?php echo $l_row['subject_name']; ?></td>
-                    <td class="semesterTable"><?php echo "<a href='gradeList.php?scholar_id=" . $l_scholar . "&subject_id=" . $l_row['subject_id'] . "'>Bekijk cijfers</a>" ?></td> 
+                    <td class="semesterTable"><?php echo "<a href='gradeListParents.php?scholar_id=" . $l_scholar . "&subject_id=" . $l_row['subject_id'] . "'>Bekijk cijfers</a>" ?></td> 
                 </tr>
 
                 <?php

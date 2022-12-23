@@ -6,4 +6,4 @@
 *.lnk
 
 # Sensitive files
-*/constants.php
+constants.php

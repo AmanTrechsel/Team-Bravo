@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include_once('header.php'); ?>
 
 <div id="herobanner">
     <img id="herobannerimg" src="./images/herobanner.png" alt="herobannerhome">
@@ -11,34 +11,34 @@
     <?php
     if ($_SERVER['REQUEST_METHOD'] == "POST")
     {
-      $err=[];
-      $g_Name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
-      $g_Email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+      $l_errors=[];
+      $g_name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+      $g_email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
-      if (!$g_Name || strlen($g_Name) < 2)
+      if (!$g_name || strlen($g_name) < 2)
       {
-        $err[] = "Je naam moet tenminste twee letters bevatten.";
+        $l_errors[] = "Je naam moet tenminste twee letters bevatten.";
       }
 
-      if (!$g_Email && strlen($g_Email) > 0)
+      if (!$g_email && strlen($g_email) > 0)
       {
-        $err[] = "E-mail is incorrect.";
+        $l_errors[] = "E-mail is incorrect.";
       }
 
-      if (strlen($g_Email) == 0)
+      if (strlen($g_email) == 0)
       {
-        $err[] = "Vul a.u.b. uw e-mail adres in.";
+        $l_errors[] = "Vul a.u.b. uw e-mail adres in.";
       }
 
-      foreach($err as $error)
+      foreach($l_errors as $l_error)
       {
-        echo $error;
+        echo $l_error;
         echo "<br>";
       }
 
-      if (count($err) == 0)
+      if (count($l_errors) == 0)
       {
-        echo "<div id='thankmessage'>Beste $g_Name,<br>Bedankt voor het invullen van dit formulier met het volgende e-mailadres: $g_Email.<br>We nemen zo snel mogelijk contact met u op.</div>
+        echo "<div id='thankmessage'>Beste $g_name,<br>Bedankt voor het invullen van dit formulier met het volgende e-mailadres: $g_email.<br>We nemen zo snel mogelijk contact met u op.</div>
               <a id='linkback' href='index.php'>Terug naar de home pagina</a>";
       }
     }

@@ -7,14 +7,12 @@
 
 <div id="mainGrades">
     <div id="gradesTitle">
-        <?php echo "<a href='subjectList.php?scholar_id=" . $l_scholar . "'><p id='leerlingButton'>Vorige pagina</p></a>" ?>
-        <?php echo "<a href='addGrade.php?scholar_id=" . $l_scholar . "&subject_id=" . $l_subject . "'><p id='leerlingButton'>Cijfer toevoegen</p></a>" ?>
+        <?php echo "<a href='subjectListParents.php?scholar_id=" . $l_scholar . "'><p id='leerlingButton'>Vorige pagina</p></a>" ?>
     </div>
     <div id="gradesContent">
         <table>
             <tr>
                 <td class="semesterTable"><h3>Cijfer</h3></td>
-                <td class="semesterTable"><h3></h3></td>
             </tr>
 
             <?php
@@ -31,22 +29,21 @@
                 echo $l_exception;
             }
 
-            if($l_statement->rowCount() > 0) {
+            if($l_statement->rowCount() > 0):
                 $l_rows = $l_statement->fetchAll();
-                foreach($l_rows as $l_row) {
+                foreach($l_rows as $l_row):
 
             ?>
 
             <tr>
-                <td class="semesterTable"><?php echo $l_row['grade']; ?></td>
-                <td class="semesterTable"><?php echo "<a href='editGrade.php?grade_id=" . $l_row['grade_id'] . "&scholar_id=" . $l_scholar . "&subject_id=" . $l_subject . "'>Cijfer bewerken</a>" ?></td> 
+                <td class="semesterTable"><?php echo $l_row['grade']; ?></td> 
             </tr>
 
             <?php
 
-                }
+            endforeach;
 
-            }
+            endif;
 
             $g_dbHandler = null;
             }
