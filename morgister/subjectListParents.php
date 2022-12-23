@@ -7,7 +7,7 @@
 
 <div id="mainGrades">
     <div id="gradesTitle">
-        <a href="scholarList.php"><p id="leerlingButton">Leerlingen</p></a>
+        <a href="scholarListParents.php"><p id="leerlingButton">Cijfers</p></a>
     </div>
     <div id="gradesContent">
         <table>
@@ -19,7 +19,7 @@
             <?php 
 
                 try {
-                    $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister_test", "root", "qwerty");
+                    $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister", "root", "qwerty");
                 } catch(Exception $ex) {
                     echo $ex;
                 }
@@ -36,7 +36,7 @@
 
                 <tr>
                     <td class="semesterTable"><?php echo $row['subject_name']; ?></td>
-                    <td class="semesterTable"><?php echo "<a href='gradeList.php?scholar_id=" . $scholar . "&subject_id=" . $row['subject_id'] . "'>Bekijk cijfers</a>" ?></td> 
+                    <td class="semesterTable"><?php echo "<a href='gradeListParents.php?scholar_id=" . $scholar . "&subject_id=" . $row['subject_id'] . "'>Bekijk cijfers</a>" ?></td> 
                 </tr>
 
                 <?php

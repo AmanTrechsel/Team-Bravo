@@ -19,7 +19,7 @@
     <?php
 
     try{
-        $dbHandler = new PDO("mysql:host=mysql;dbname=Morgister", "root", "qwerty");
+        $dbHandler = new PDO("mysql:host=mysql;dbname=Morgister_test", "root", "qwerty");
 
         $stmt = $dbHandler->prepare("SELECT * FROM `Grades` WHERE scholar_id=" . $scholar . " AND subject_id=" . $subject . " AND grade_id=" . $grade_id . "");
 

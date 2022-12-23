@@ -7,20 +7,18 @@
 
 <div id="mainGrades">
     <div id="gradesTitle">
-        <?php echo "<a href='subjectList.php?scholar_id=" . $scholar . "'><p id='leerlingButton'>Vorige pagina</p></a>" ?>
-        <?php echo "<a href='addGrade.php?scholar_id=" . $scholar . "&subject_id=" . $subject . "'><p id='leerlingButton'>Cijfer toevoegen</p></a>" ?>
+        <?php echo "<a href='subjectListParents.php?scholar_id=" . $scholar . "'><p id='leerlingButton'>Vorige pagina</p></a>" ?>
     </div>
     <div id="gradesContent">
         <table>
             <tr>
                 <td class="semesterTable"><h3>Cijfer</h3></td>
-                <td class="semesterTable"><h3></h3></td>
             </tr>
 
             <?php
 
             try {
-                $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister_test", "root", "qwerty");
+                $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister", "root", "qwerty");
             
                 $stmt = $g_dbHandler->prepare("SELECT * FROM `Grades` WHERE scholar_id = :scholarId AND subject_id = :subjectId");
                 $stmt->bindParam(':scholarId', $scholar, PDO::PARAM_STR);
@@ -38,8 +36,7 @@
             ?>
 
             <tr>
-                <td class="semesterTable"><?php echo $row['grade']; ?></td>
-                <td class="semesterTable"><?php echo "<a href='editGrade.php?grade_id=" . $row['grade_id'] . "&scholar_id=" . $scholar . "&subject_id=" . $subject . "'>Cijfer bewerken</a>" ?></td> 
+                <td class="semesterTable"><?php echo $row['grade']; ?></td> 
             </tr>
 
             <?php

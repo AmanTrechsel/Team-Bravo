@@ -1,12 +1,17 @@
-<?php include_once('header.php'); ?>
+<?php require('header.php'); ?>
 
 <div id="mainGrades">
     <div id="gradesContent">
-        <h2 class="subjectTable">Leerlingen</h2>
+        <h2 class="subjectTable">Cijfers</h2>
     </div> 
     <div class="scholarList">    
         <?php
-        $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister_test", "root", "qwerty");       
+                  
+        try {
+        $g_dbHandler = new PDO("mysql:host=mysql;dbname=Morgister", "root", "qwerty");
+        } catch(Exception $ex) {
+                echo $ex;
+        }   
         $stmt = $g_dbHandler->prepare("SELECT * FROM Scholar");
         $stmt->execute();
            
@@ -19,7 +24,7 @@
      
         <div class="scholarBox">
             <p><?php echo $row['name'], " ", $row['surname'], "</p><p>", "Leerling nummer: ", $row['scholar_id']; ?>
-            <p><?php echo "<a  href='subjectList.php?scholar_id=" . $row['scholar_id'] . "'>Bekijk cijfers</a>"; ?><p>
+            <p><?php echo "<a href='subjectListParents.php?scholar_id=" . $row['scholar_id'] . "'>Bekijk cijfers</a>"; ?><p>
         </div>
             
 
@@ -28,7 +33,7 @@
         endforeach;
 
         endif;
-        $g_dbhandeler = null;
+        $g_dbHandler = null;
            
         ?>
     </div>
